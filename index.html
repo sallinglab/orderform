@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    
+    <head>
+        <title>Salling Lab Order Form</title>
+        
+        <style>
+            div {
+            margin-bottom: 10px;
+            }
+            
+            label {
+                display: inline-block;
+                width: 110px;
+                color: #777777;
+            }
+            
+            input {
+                padding: 5px 10px;
+            }
+            
+        </style>
+        
+    </head>
+    
+    <body>
+        <div>
+        <h1>Salling Lab Order Form</h1>
+        </div>
+         
+        <form method="POST" id="sheetdb-form" action="https://sheetdb.io/api/v1/75gcv5pa8lmbd">
+                    
+            <div>
+            <label>Name:</label>
+            <input name="data[Name]">
+            </div>
+                   
+            <div>
+            <label>Date:</label>
+            <input name="data[Date]">
+            </div>
+                    
+            <div>
+            <label>Item:</label>
+            <input name="data[Item]">
+            </div>
+                    
+            <div>
+            <label>Quantity:</label>
+            <input name="data[Quantity]">
+            </div>
+                    
+            <div>
+            <label>Vendor:</label>
+            <input name="data[Vendor]">
+            </div>
+                    
+            <div>
+            <label>Category Number:</label>
+            <input name="data[Category Number]">
+            </div>
+            
+            <div>
+            <label>Purpose/Notes:</label>
+            <input name="data[Purpose/Notes]">
+            </div>
+                   
+            <p><button type="submit">Submit</button></p>
+                    
+        </form>
+
+        <script>
+            var form = document.getElementById('sheetdb-form');
+            form.addEventListener("submit", e => {
+            e.preventDefault();
+            fetch(form.action, {
+            method : "POST",
+            body: new FormData(document.getElementById("sheetdb-form")),
+            }).then(
+            response => response.json()
+            ).then((html) => {
+            alert('Order submitted successfully!')
+            window.location.href = 'https://sallinglab.github.io/';
+            });
+            });
+        </script>
+        
+    </body>
+    
+</html>
